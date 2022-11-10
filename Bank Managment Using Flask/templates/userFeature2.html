@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function number()
+        {
+            us =document.getElementById("num")
+            if(us.value.length == 0)
+            {
+                alert("Enter Amount")
+                us.focus()
+                return
+            }
+            us1 =document.getElementById("num1")
+            if(us1.value.length == 0)
+            {
+                alert("Enter Password")
+                us1.focus()
+                return
+            }
+            else{
+                withdraww.submit()
+
+            }
+        }
+    </script>
+    <style>
+        body
+        {
+            background-image: url('../static/bank9.jpg');
+            background-size: cover;
+        }
+        h2
+        {
+            background-color:yellow;
+        }
+   
+    </style>
+</head>
+<body>
+    <center>
+        <form method="post" action="/withDraw" name="withdraww">
+        
+        <h2><b>!!!...HERE SOME FEATURES FOR OUR CUSTOMERS...!!!</b></h2><p align="right"><a href="/userLogout" >
+            <button type="button">LOGOUT</button>
+            </a> {%if time%}
+            <strong style="color:black" ><h5 align="left">{{time}}</h5></strong>
+            {%endif%}</p>
+            <img src="../static/img2.webp" align="left" height="100%" width="33%">
+            <img src="../static/img1.webp" align="right" height="100%" width="33%">
+            
+            {%if map%}
+            <strong style="color:green">{{name}}  {{map}}</strong>
+            {%endif%}<br><br>
+            {%if bal%}
+            <strong style="color:orange">{{bal}}{{result}}</strong>
+            {%endif%}
+            {%if msg%}
+            <strong style="color:orange">{{msg}}</strong>
+            {%endif%}
+        
+        
+        <table border="5" cellspacing="10" cellpadding="5">
+            <h4>WithDraw Section</h4>
+            <tr>
+                <td>Enter Amount</td>
+                <td><input type="number" name="val" id="num"></td>
+            </tr>
+            <tr>
+                <td>Enter Password</td>
+                <td><input type="password" name="ps" id="num1"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Withdraw" name="val" id="num" onclick="number()"></td>
+                <td>
+                    {%if msg%}
+                    <strong style="color:red">{{msg}}</strong>
+                    {%endif%}
+                    {%if msgs%}
+                    <strong style="color:green">{{msgs}}</strong>
+                    {%endif%}
+                </td>
+                <td>
+                    <input type="text" name="users" value="{{user2}}" id="uss" style="display:none">
+                </td>
+                <td>
+                    <input type="text" name="pass" value="{{password}}" id="pw" style="display:none">
+                
+                </td>
+            </tr>
+        </table>
+        </form>
+        
+        <form method="post" action="/userFeature">
+                <p><strong><h3><b><i>!!!...INDEX...!!!</i></b></h3></strong></p>
+                    <div class="dropdown">
+                            <button type="button" 
+                               class="btn btn-primary dropdown-toggle"
+                             data-toggle="dropdown">
+                              !!!...FEATURES...!!!
+                            </button>
+                            <input type="text" name="users" value="{{user2}}" id="uss" style="display:none">
+                            <input type="text" name="pass" value="{{password}}" id="pw" style="display:none">
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" ><li type="square"><input type="submit" value="BALANCE ENQUIRY" name="balance"></li></a>
+                              <a class="dropdown-item" ><li type="square"><input type="button" value="WITHDRAW AMOUNT" name="balance"></li></a>
+                              <a class="dropdown-item" ><li type="square"><input type="submit" value="DEPOSIT AMOUNT" name="balance"></li></a>
+                              <a class="dropdown-item"><li type="square"><input type="submit" value="TRANSFER AMOUNT" name="balance"></li></a>
+                            </div>
+                        
+        </form>         
+    </center>
+    
+</body>
+</html>

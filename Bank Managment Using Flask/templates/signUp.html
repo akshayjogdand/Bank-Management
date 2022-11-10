@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='img.css')}}"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $("table#myform1").fadeIn(3000)
+            $("h2#id2").fadeIn(3000)
+        }
+        
+        );
+       
+            
+        
+    </script>
+    <script type="text/javascript">
+        
+                function verify()
+        {
+            uname = document.getElementById("nm")
+            if(uname.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                uname.focus()
+                return
+            }
+
+            rand= document.getElementById("acc")
+            if(rand.value.length==0)
+            {
+                
+                alert("Please Enter Account Number")
+                rand.focus()
+                return 
+            }
+
+            mob = document.getElementById("num")
+            if(mob.value.length == 0)
+            {
+                alert("Please Enter Mobile Number")
+                mob.focus()
+                return  
+            }
+
+
+            otpp= document.getElementById("otp")
+            if(otpp.value.length==0)
+            {
+                
+                alert("Please Enter OTP")
+                otpp.focus()
+                return 
+            }
+       
+            
+           else
+           {    //alert("Details Verified Successfull")
+                number.submit()
+           } 
+        }  
+        
+        function verify1()
+        {
+            uname = document.getElementById("nm")
+            if(uname.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                uname.focus()
+                return
+            }
+
+            rand= document.getElementById("acc")
+            if(rand.value.length==0)
+            {
+                
+                alert("Please Enter Account Number")
+                rand.focus()
+                return 
+            }
+
+            mob = document.getElementById("num")
+            if(mob.value.length == 0)
+            {
+                alert("Please Enter Mobile Number")
+                mob.focus()
+                return  
+            }
+
+
+            else
+           {    //alert("Details Verified Successfull")
+                number.submit()
+           } 
+        }
+           
+    </script>
+    <style>
+        body
+        {
+            background-image: url("../static/img10.webp");
+            background-size: cover;
+        }
+        table
+{
+    color: white;
+    background-color: rgb(87, 164, 241);
+}
+h2
+{
+    color: burlywood;
+}
+
+ 
+    </style>
+</head>
+<body>
+    <h2 align="center" id="id2" style="display:none">##...VERIFY DETAILS...##</h2>
+    <br><br>
+    <table align="right">
+        <tr>
+            
+            <td><a href="/contentUser/1">
+                <button type="button">Sign In</button></a></td><td></td><td></td>
+
+                
+            <td>
+
+                <button type="button">Sign Up</button></td>
+        </tr>
+    </table>
+<center>
+        <br><br><br><br>
+
+    <form method="post" action="/getOtp" name="number">
+        <table id="myform1" cellspacing="10" style="display:none" border="15" >
+             
+                            <br><br>
+            <tr><td ><td ><h2 align="center" color="yellow">!!!..Details Verify..!!!</h2></td></td></tr>
+
+            <tr>
+                <td>Enter Name</td>
+                <td>
+                    <input type="text" name="uname" id="nm"value="{{nm}}" >
+                </td>
+            </tr>
+            <tr>
+                <td>Enter Account Number</td>
+                <td>
+                    
+                    
+                    <input type="number" name="accnum" id="acc" value="{{accNum}}" > 
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile No.</td>
+                <td>
+                    <input type="number" name="no" id="num"  value="{{mobile}}"  >
+                </td>
+                <td>
+                    
+                    <button type="button" onclick="verify1()">GET OTP</button>
+                </td>
+            
+            </tr>
+            <tr>
+                <td>Enter OTP</td>
+                <td>
+                    <input type="number" id="otp" name="ottp" value="{{num}}">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"  name="span" value="{{genotp}}" style="display:none"></td>
+            </tr>
+
+        
+            <tr>
+                <td align="center">
+                    
+                    <button type="button" onclick="verify()" >VERIFY</button>               
+                </td>
+                <td>
+                    {%if msgs%}
+                    <strong style="color:green">{{msgs}}</strong>
+                    {%endif%}
+
+                    {%if val%}
+                    <strong style="color:red" >{{val}}</strong>
+                    {%endif%}
+
+                    {%if alert%}
+                    <strong style="color:green">{{alert}}</strong>
+                    {%endif%}
+
+                    {%if alert1%}
+                    <strong style="color:orange">{{alert1}}</strong>
+                    {%endif%}
+
+                    {%if alert2%}
+                    <strong style="color:red"> {{alert2}}</strong>
+                    {%endif%}
+                </td>
+                
+            </tr>
+        
+       
+        </table>   
+    </form>
+</center>
+</body>
+</html>

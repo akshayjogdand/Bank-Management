@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='img.css')}}"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $("table#myform").fadeIn(3000)
+            $("h2#id1").fadeIn(3000)
+        }
+        
+        );
+       
+            
+        
+    </script>
+    <script type="text/javascript">
+
+        function log()
+        {
+            nm = document.getElementById("nme")
+            if(nm.value.length == 0)
+            {
+                alert("Please Create User-Name")
+                nm.focus()
+                return
+            }
+            pwd = document.getElementById("pw")
+            if(pwd.value.length == 0)
+            {
+                alert("Please Create Password")
+                pwd.focus()
+                return
+            }
+            else
+           {    alert("!!!...USERNAME and PASSWORD SUCCESSFULLY CREATED...!!!")
+                myvalue.submit()
+           } 
+
+        } 
+    </script>
+    <style>
+        body
+        {
+            background-image: url("../static/img8.jpg");
+            background-size: cover;
+        }
+        table
+        {
+            color:cornflowerblue;
+            background-color:black;
+        }
+        h2
+        {
+            color: burlywood;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 align="center" id="id1" style="display:none">##...PLEASE...!!! CREATE DETAILS...##</h2>
+    <br><br>
+    <table align="right">
+        <tr>
+            
+            <td>
+                <button id="btn1">Sign In</button></td><td></td><td></td>
+
+                
+            <td>
+                
+                    
+                <button type="button">Sign Up</button></td>
+        </tr>
+    </table>
+    <center>
+
+        <br><br><br><br>
+        <form method="post" action="/submitData" name="myvalue"  >
+            {%if msg%}
+            <strong style="color:red">{{msg}}</strong>
+            {%endif%} 
+            <br>
+            <table border="10" cellspacing="10" id="myform" style="display:none"  >
+                <tr><td bgcolor="black"><h1 align="center">Login</h1></td></tr>
+                
+                <tr>
+
+                    <td align="center"><b><i>CREATE USERNAME</i></b></td>
+                </tr>
+                
+                
+                <tr>
+                    
+                    <td>
+                        <input type="text" name="user" id="nme">
+                    </td>
+                </tr>
+
+                <tr>
+                    
+                    <td align="center"><b><i>CREATE PASSWORD</i></b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="password" name="pwd" id="pw">
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="mb1" value="{{mobile}}" style="display:none"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="acc1" value="{{accNum}}" style="display:none"></td>
+                </tr>
+
+                
+                <tr>
+                    <td align="center">
+                        
+                       <button type="button" onclick="log()">CREATE</button>
+                    </td>
+                </tr>
+                
+            </table>
+        </form>
+        </center>
+    
+</body>
+</html>

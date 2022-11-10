@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        function display()
+        {
+            uname = document.getElementById("nm")
+            if(uname.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                uname.focus()
+                return
+            }
+
+            mob = document.getElementById("num")
+            if(mob.value.length == 0)
+            {
+                alert("Please Enter Mobile Number")
+                mob.focus()
+                return  
+            }
+        
+
+            type1= document.getElementById("sav")
+            type2= document.getElementById("cur")
+            if(type1.checked !=true && type2.checked !=true)
+            {
+                
+                alert("Please Select Account Type ")
+                type.focus()
+                return 
+            }
+            rand= document.getElementById("otp")
+            if(rand.value.length==0)
+            {
+                
+                alert("Please Enter Account Number")
+                rand.focus()
+                return 
+            }
+       
+            else
+            {
+                ans = confirm(" sure you want to delete???")
+                if(ans == true)
+                {   
+                   
+                    myform.submit()
+                }
+                
+                
+            }
+            
+            
+        }
+       
+    
+    </script>
+    <style>
+        body
+        {
+            background-image: url("../static/bank10.jpg");
+            background-size:cover
+            
+        }
+       
+    </style>
+</head>
+<body>
+    <form action="/deleteRec" method="post" name="myform">
+        <table cellspacing="5" align="right" bgcolor="brown"><br><br>
+    
+        <tr>
+            <td>
+                
+                <a href="/adminFeature">
+                    <input type="button" value="INDEX PAGE">
+                </a>
+            </td>
+
+            <td>
+            <a href="/showAll">
+                <input type="button" value="SHOW ACCOUNT HOLDER">
+            </a>
+        </td>
+        
+        </tr>
+        
+    </table>
+    
+    <center>
+        <br><br>
+            <hr>
+            <p><strong><h2><b><i>!!!...ACCOUNT CLOSE CONFIRMATION...!!!</i></b></h2></strong></p>
+           
+            <hr>
+            {%if msg%}
+            <p><strong>{{msg}}</strong></p>
+            {%endif%}
+
+            <br>
+            
+            <br>
+            
+            <table border="10" cellpadding="10" cellspacing="8">
+                <tr>
+                    <td>Enter Name</td>
+                    <td>
+                        <input type="text" name="uname" id="nm" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile No.</td>
+                    <td>
+                        <input type="number" name="no" id="num"  >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select Account Type</td>
+                    <td>
+                        <input type="radio" name="type" value="Saving" id="sav"/>Saving
+                        <input type="radio" name="type"value="Current" id="cur"/>Current
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter Account Number</td>
+                    <td>
+                        
+                        
+                        <input type="number" name="accnum" id="otp" > 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td align="center">
+                        <input type="button" value="DELETE" onclick="display()"/>                       
+                    </td>
+                    
+                </tr>
+                
+                
+
+
+            </table>
+        </form>
+    </center>
+    
+</body>
+</html>

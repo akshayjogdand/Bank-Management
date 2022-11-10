@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='img.css')}}"/>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $("button#btn1").click(
+                function()
+                {$("table#myform1").hide()
+                  $("table#myform").fadeToggle(1000)
+                }
+            );
+            $("button#btn2").click(
+                function()
+                {$("table#myform").hide()
+                  $("table#myform1").fadeToggle(1000)
+                }
+            );
+            
+        });
+    </script>
+
+    <script type="text/javascript">
+      
+        function display()
+        {
+            uname = document.getElementById("nm")
+            if(uname.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                uname.focus()
+                return
+            }
+
+            rand= document.getElementById("acc")
+            if(rand.value.length==0)
+            {
+                
+                alert("Please Enter Account Number")
+                rand.focus()
+                return 
+            }
+
+            mob = document.getElementById("num")
+            if(mob.value.length == 0)
+            {
+                alert("Please Enter Mobile Number")
+                mob.focus()
+                return  
+            }
+
+
+            otpp= document.getElementById("otp")
+            if(ottp.value.length==0)
+            {
+                
+                alert("Please Enter OTP")
+                ottp.focus()
+                return 
+            }
+       
+            
+           else
+           {
+                myvalue.submit()
+           } 
+        }       
+            
+        function log()
+        {
+            nm = document.getElementById("nme")
+            if(nm.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                nm.focus()
+                return
+            }
+            pwd = document.getElementById("pw")
+            if(pwd.value.length == 0)
+            {
+                alert("Please Enter Password")
+                pwd.focus()
+                return
+            }
+
+            else
+           {
+                myvalue.submit()
+           } 
+
+        }   
+        
+        function otpp()
+        {
+            bill = document.getElementById("num").value
+            document.getElementById("xxx").innerHTML=otp
+        }
+
+        
+               
+    
+    </script>
+    <style>
+        body
+        {
+            background-image: url("../static/img10.webp");
+        }
+        table
+        {
+            color: white;
+        }
+    </style>
+
+</head>
+<body >
+
+    
+        <br><br>
+        <table align="right">
+            <tr>
+                
+                <td><button id="btn1">Sign In</button></td><td></td><td></td>
+                <td><button id="btn2">Sign Up</button></td>
+            </tr>
+        </table>
+    <center>
+
+        <br><br><br><br><br><br>
+        <form method="post" action="contentUser" name="myvalue"  > 
+            <table border="0" cellspacing="10" id="myform" style="display:none"  >
+                <tr><td bgcolor="darkcyan"><h1 align="center">Login</h1></td></tr>
+                
+                <tr>
+
+                    <td align="center"><b>USERNAME</b></td>
+                </tr>
+                
+                
+                <tr>
+                    
+                    <td>
+                        <input type="text" name="user" id="nme">
+                    </td>
+                </tr>
+
+                <tr>
+                    
+                    <td align="center"><b>PASSWORD</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="password" name="pwd" id="pw">
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td align="center">
+                       <button type="button" onclick="log()">Login</button>
+                    </td>
+                </tr>
+                
+            </table>
+        
+            <table id="myform1" cellspacing="10" style="display:none">
+                                <br><br>
+                <tr><td bgcolor="pink" align="center"><h2 align="center">Details Verify...!!!</h2></td></tr>
+  
+                <tr>
+                    <td>Enter Name</td>
+                    <td>
+                        <input type="text" name="uname" id="nm" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter Account Number</td>
+                    <td>
+                        
+                        
+                        <input type="number" name="accnum" id="acc" > 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile No.</td>
+                    <td>
+                        <input type="number" name="no" id="num"  >
+                    </td>
+                    <td>
+                        <a href="/getOtp/{{xxx}}">
+                        <button type="button" onclick="otpp()">GET OTP</button></a>
+                    </td>
+                    <td>
+                        {%if msgs%}
+                        <strong>{{msgs}}</strong>
+                        {%endif%}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter OTP</td>
+                    <td>
+                        <input type="number" name="otp" >
+                        
+                    </td>
+                </tr>
+
+            
+                <tr>
+                    <td align="center">
+                        <a href="/contentUser">
+                        <button type="button">VERIFY</button></a>                 
+                    </td>
+                    
+                </tr>
+           
+            </table>   
+        </form>
+</center>
+</body>
+</html>

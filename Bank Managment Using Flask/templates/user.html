@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='img.css')}}"/>
+
+
+    <script type="text/javascript">
+      
+        function display()
+        {
+            uname = document.getElementById("nm")
+            if(uname.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                uname.focus()
+                return
+            }
+
+            rand= document.getElementById("acc")
+            if(rand.value.length==0)
+            {
+                
+                alert("Please Enter Account Number")
+                rand.focus()
+                return 
+            }
+
+            mob = document.getElementById("num")
+            if(mob.value.length == 0)
+            {
+                alert("Please Enter Mobile Number")
+                mob.focus()
+                return  
+            }
+
+
+            otpp= document.getElementById("otp")
+            if(ottp.value.length==0)
+            {
+                
+                alert("Please Enter OTP")
+                ottp.focus()
+                return 
+            }
+       
+            
+           else
+           {
+                myvalue.submit()
+           } 
+        }       
+            
+        function log()
+        {
+            nm = document.getElementById("nme")
+            if(nm.value.length == 0)
+            {
+                alert("Please Enter Your Name")
+                nm.focus()
+                return
+            }
+            pwd = document.getElementById("pw")
+            if(pwd.value.length == 0)
+            {
+                alert("Please Enter Password")
+                pwd.focus()
+                return
+            }
+            else
+           {
+                myvalue.submit()
+           } 
+
+        
+
+        }   
+        
+    
+    
+    </script>
+       <style>
+        body
+        {
+            background-image: url("/static/img10.webp");
+            background-size: cover;
+        }
+        table
+{
+    color: white;
+}
+strong
+{
+    color:darkkhaki;
+}
+button
+{
+    background-color:rgb(253, 188, 108)
+}
+
+    </style>
+
+</head>
+<body >
+
+        <center>       <strong color="white"><h1  >!!!<<<<<<<<<<<<...CHOOSE OPTION...>>>>>>>>>>>>>>!!!</h1></strong> </center>
+ 
+        
+        <table align="right">
+            
+            <tr>
+                <td>
+                    <img src="/static/arrows.png" height="50px" width="150px">
+                </td>
+                
+                
+                <td><a href="/contentUser/1">
+                    <button type="button">Sign In</button></a></td><td></td><td></td>
+
+                    
+                <td>
+                    <a href="/contentUser/2">
+
+                    <button type="button">Sign Up</button></a></td>
+            </tr>
+        </table>
+        <br><br><br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="/static/2.png" align="center">
+    
+
+
+</center>
+</body>
+</html>

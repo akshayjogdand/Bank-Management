@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function display()
+        {
+            val = document.getElementById("num")
+            if(val.value.length == 0)
+            {
+                alert("Please Enter Account Number  ")
+                
+            }
+            else{
+                myform.submit()
+            }
+        }
+    </script>
+      
+    <style>
+        body
+        {
+            background-image: url("/static/bank1.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <br>
+        <table cellspacing="5" align="right" bgcolor="orange">
+            <tr><td><a href="/addAcc" >
+                <input type="button" value="ADD NEW CUSTOMER">
+            </a></td>
+        
+        <td> <a href="/adminFeature">
+            <input type="button" value="INDEX PAGE">
+        </a></td>
+    </tr>
+    </table>
+        <br><br><br><br><br><br><br><br><br>
+    <form method="post" action="/identify/3" name="myform">
+        <table>
+            <tr><td ></td><td bgcolor="yellow"><input type="number" name="ID" id="num"  placeholder="   Enter Account Number"></td>
+            <td>
+                
+                <input type="button" value="GO" onclick="display()"></td></tr>
+            
+        </table>
+        {%if msg%}
+        <strong style="color:red">{{msg}}</strong>
+        {%endif%}
+    </form>
+</center>
+
+    <form method="post" action="/searchRecord">
+        <br>
+ 
+        <center>
+            
+          
+       
+            <table >
+                <br><br><br><br><br><br>
+                
+                <tr>
+                    <td>
+                        <input type="submit" value="SEARCH BY ID" name="action" >
+
+                    </td>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="SEARCH BY NAME" name="action">
+                        
+                        
+                    </td>
+                </tr>
+                <tr></tr><tr></tr>
+                <tr>
+                    <td></td>
+                    <td >
+                        <input type="button" value="SEARCH BY ACCOUNT NUMBER" name="action">
+
+                    </td>
+                </tr>
+           
+
+            
+            </table>
+        </center>
+    </form>
+    
+</body>
+</html>
